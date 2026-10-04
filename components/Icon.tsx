@@ -1,0 +1,8 @@
+export type IconName='heart'|'calendar'|'clock'|'rings'|'pin'|'music'|'pause'|'share'|'copy'|'check'|'chevron'|'leaf'|'menu'|'volume';
+const paths:Record<IconName,React.ReactNode>={
+heart:<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>,
+calendar:<><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18M7 15h2m3 0h2m3 0h1M7 18h2m3 0h2"/></>,
+clock:<><circle cx="12" cy="12" r="9"/><path d="M12 6v6l-3 3"/></>,rings:<><circle cx="8" cy="14" r="6"/><circle cx="16" cy="14" r="6"/><path d="m8 3 2 3-2 2-2-2Zm8 0 2 3-2 2-2-2Z"/></>,
+pin:<><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></>,
+music:<><path d="M9 18V5l11-2v13M9 9l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/></>,pause:<><path d="M8 5v14M16 5v14"/></>,share:<><circle cx="18" cy="4" r="3"/><circle cx="5" cy="12" r="3"/><circle cx="18" cy="20" r="3"/><path d="m8 10 7-4M8 14l7 4"/></>,copy:<><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M15 8V3H3v13h5"/></>,check:<path d="m5 12 4 4L20 5"/>,chevron:<path d="m15 5-7 7 7 7"/>,leaf:<><path d="M5 21C7 9 18 3 18 3M11 13C2 13 4 5 4 5c7 0 7 8 7 8ZM13 10c0-7 8-7 8-7s0 7-8 7ZM8 18c0-7 9-5 9-5s-2 6-9 5Z"/></>,menu:<path d="M4 6h16M4 12h16M4 18h16"/>,volume:<><path d="m11 4-5 4H2v8h4l5 4ZM16 7c3 3 3 7 0 10M19 4c5 5 5 11 0 16"/></>};
+export default function Icon({name,size=24}:{name:IconName;size?:number}){return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>}

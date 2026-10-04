@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import { allowedRequestOrigin } from '../lib/origin.ts';
+const base={origin:'http://localhost:3000',fetchSite:'same-origin',host:'localhost:3000',forwardedHost:null,requestOrigin:'http://0.0.0.0:3000',appUrl:'https://invitation.example'};
+assert.equal(allowedRequestOrigin(base),true);
+assert.equal(allowedRequestOrigin({...base,origin:'http://192.168.1.20:3000',host:'192.168.1.20:3000'}),true);
+assert.equal(allowedRequestOrigin({...base,origin:'https://public.example',host:'internal:3000',forwardedHost:'public.example',requestOrigin:'http://internal:3000'}),true);
+assert.equal(allowedRequestOrigin({...base,origin:'https://evil.example'}),false);
+assert.equal(allowedRequestOrigin({...base,origin:'https://evil.example',fetchSite:'cross-site',forwardedHost:'evil.example'}),false);
+assert.equal(allowedRequestOrigin({...base,origin:'http://localhost:9999'}),false);
+assert.equal(allowedRequestOrigin({...base,appUrl:'invalid config'}),true);
+assert.equal(allowedRequestOrigin({...base,origin:'null'}),false);
+assert.equal(allowedRequestOrigin({...base,origin:'http://localhost:3000/path'}),false);
+assert.equal(allowedRequestOrigin({...base,origin:'https://user:pass@localhost:3000'}),false);
+assert.equal(allowedRequestOrigin({...base,origin:'https://public.example',fetchSite:'same-site',forwardedHost:'public.example'}),false);
+console.log('PASS: 11 origin/security regression assertions.');
