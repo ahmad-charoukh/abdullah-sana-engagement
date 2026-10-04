@@ -21,16 +21,18 @@
     "@fontsource/aref-ruqaa": "^5.2.0",
     "@fontsource/cormorant-garamond": "^5.2.0",
     "@opennextjs/cloudflare": "^1.20.8",
+    "@supabase/supabase-js": "^2.117.2",
     "next": "^16.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "sharp": "^0.34.0"
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "playwright": "^1.63.0",
+    "supabase": "^2.119.0",
     "typescript": "^5.9.0",
     "wrangler": "^4.147.0"
   },
